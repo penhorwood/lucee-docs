@@ -81,7 +81,7 @@
 					</li>
 				</cfif>
 				<li>
-					<a class="menu-toggle" href="##search">
+					<a class="menu-toggle" href="##search" title="search (/)">
 						<span class="access-hide">Search</span>
 						<span class="icon icon-search icon-lg"></span>
 						<span class="header-close icon icon-close icon-lg"></span>
