@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+words           = [ 'Hello' , 'World' ];
+positionOfWorld = ArrayContainsNoCase( words, 'world' ); 
+Echo( positionOfWorld ); // outputs 2
+```

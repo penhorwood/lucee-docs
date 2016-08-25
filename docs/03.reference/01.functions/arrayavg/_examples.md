@@ -1,1 +1,5 @@
-*There are currently no examples for this function.*
+```luceescript+trycf
+numbers  = [ 1, 2, 3, 4 ];
+avgValue = ArrayAvg( numbers );
+Echo( avgValue ); // outputs 2.5
+```

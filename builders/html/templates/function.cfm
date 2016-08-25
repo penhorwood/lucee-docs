@@ -1,6 +1,7 @@
 <cfparam name="args.page" type="page" />
 
 <cfset fn = args.page />
+<cfset argumentsHaveDefaultValues = fn.argumentsHaveDefaultValues() />
 
 <cfoutput>
 	<a class="pull-right" href="#getSourceLink( path=fn.getSourceFile() )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
@@ -27,6 +28,7 @@
 					<tr>
 						<th>Argument</th>
 						<th>Description</th>
+						<cfif argumentsHaveDefaultValues><th>Default</th></cfif>
 					</tr>
 				</thead>
 				<tbody>
@@ -40,6 +42,11 @@
 								<a class="pull-right" href="#getSourceLink( path=fn.getSourceDir() & '_arguments/#arg.name#.md' )#" title="Improve the docs"><i class="fa fa-pencil fa-fw"></i></a>
 								#markdownToHtml( Trim( arg.description ) )#
 							</td>
+							<cfif argumentsHaveDefaultValues>
+ 								<td>
+ 									#markdownToHtml( arg.default ?: "" )#
+ 								</td>
+ 							</cfif>
 						</tr>
 					</cfloop>
 				</tbody>

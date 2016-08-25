@@ -2,12 +2,26 @@
 
 cd `dirname $0`
 CWD="`pwd`"
-echo "Building documentation with Lucee :)"
+
+echo "Importing reference docs from previously undocumented functions and tags..."
+box $CWD/import.cfm
+
+echo "Building documentation..."
+
 box $CWD/build.cfm
+if [ -f .exitcode ]; then
+  exitcode=$(<.exitcode)
+  rm -f .exitcode
+  echo "Exiting build, documentation build failed."
+  exit $exitcode
+fi
+
 echo "Building complete"
-if [[ $TRAVIS_BRANCH == 'master' ]] ; then
+
+if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] ; then
   echo "Zipping up docs for offline download..."
   cd builds/html
+  cp ../../.cloudfront-distribution-id ./
   zip -q -r lucee-docs.zip *
   cd ../../
   echo "Zipped."

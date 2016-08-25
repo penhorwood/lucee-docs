@@ -1,6 +1,7 @@
 ---
 title: About the docs
 id: about
+description: Good documentation is at the heart of all successful open source projects. This section of the documentation describes how the documentation is built and how you can get involved with contribution.
 ---
 
 ## Mission statement
@@ -14,7 +15,7 @@ Good documentation is at the heart of all successful open source projects. With 
 
 ## Contributing
 
-This documentation is built from an open source repository that is open to all to contribute. The repository can be found under the official Lucee team's BitBucket account at [https://github.com/lucee/lucee-docs](https://github.com/lucee/lucee-docs).
+This documentation is built from an open source repository that is open to all to contribute. The repository can be found under the official Lucee team's GitHub account at [https://github.com/lucee/lucee-docs](https://github.com/lucee/lucee-docs).
 
 You'll find information on ways in which you can contribute in the [[docs-content]] and [[docs-build]] sections. However, if you're ever in doubt, we encourage you to use the [issue tracker](https://luceeserver.atlassian.net/projects/LD) and [community forums](http://lucee.org/get-involved.html) to help get you started or discuss your ideas.
 

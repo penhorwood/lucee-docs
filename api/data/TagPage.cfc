@@ -22,6 +22,7 @@ component accessors=true extends="Page" {
 		var unnamedAttributes = ( this.getAttributeType() ?: "" ) == "noname";
 
 		for( var attribute in this.getAttributes() ) {
+
 			if ( unnamedAttributes ) {
 				usage &= " ###attribute.type# #attribute.name###";
 			} else {
@@ -30,7 +31,13 @@ component accessors=true extends="Page" {
 					usage &= "[";
 				}
 
-				usage &= '#attribute.name#="#attribute.type#"';
+				usage &= '#attribute.name#=';
+
+				if ( IsArray( attribute.values ?: "" ) && attribute.values.len() ) {
+ 					usage &= attribute.values.toList( "|" );
+				} else {
+ 					usage &= attribute.type;
+				}
 
 				if ( !attribute.required ) {
 					usage &= "]";
@@ -78,5 +85,14 @@ component accessors=true extends="Page" {
 		}
 
 		return "This tag is also supported within cfscript";
+	}
+
+	public boolean function attributesHaveDefaultValues() {
+		for( var attr in getAttributes() ) {
+			if ( !IsNull( attr.defaultValue ) ) {
+ 				return true;
+			}
+		}
+		return false;
 	}
 }
